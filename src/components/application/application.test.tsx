@@ -5,6 +5,17 @@ describe("Application", () => {
   test("renders correctly", () => {
     render(<Application />);
 
+    // Priority Order for Queries - single elements in the DOM
+    // 1. getByRole
+    // 2. getByLabelText
+    // 3. getByPlaceholderText
+    // 4. getByText
+    // 5. getByDisplayValue
+    // The last two should be the least to consider
+    // 6. getByAltText - if it support alt text
+    // 7. getByTitle
+    // 8. getByTestId - for dynamic test
+
     const pageHeading = screen.getByRole("heading", {
       level: 1,
     });
