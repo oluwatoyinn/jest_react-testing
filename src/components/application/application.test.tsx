@@ -10,10 +10,10 @@ describe("Application", () => {
     });
     expect(pageHeading).toBeInTheDocument();
 
-    const sectionHeadinf = screen.getByRole("heading", {
+    const sectionHeading = screen.getByRole("heading", {
       level: 2,
     });
-    expect(sectionHeadinf).toBeInTheDocument();
+    expect(sectionHeading).toBeInTheDocument();
 
     const paragraphText = screen.getByText("All fields are mandatory");
     expect(paragraphText).toBeInTheDocument();
@@ -21,10 +21,11 @@ describe("Application", () => {
     const closeElement = screen.getByTitle("close");
     expect(closeElement).toBeInTheDocument();
 
-
-
     const imageAltText = screen.getByAltText("a man standing");
     expect(imageAltText).toBeInTheDocument();
+
+    const customElement = screen.getByTestId("custom-element");
+    expect(customElement).toBeInTheDocument();
 
     // getByRole example
     const nameElement = screen.getByRole("textbox", {
