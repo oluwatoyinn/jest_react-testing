@@ -31,4 +31,16 @@ describe("Skills", () => {
     });
     expect(starLearningtButtonElement).not.toBeInTheDocument();
   });
+
+  test("start learning button is eventaully displayed after 500 miliseconds", async () => {
+    render(<Skills skills={skills} />);
+    const starLearningtButtonElement = await screen.findByRole(
+      "button",
+      {
+        name: "Start Learning",
+      },
+      { timeout: 2000 }
+    );
+    expect(starLearningtButtonElement).toBeInTheDocument();
+  });
 });
