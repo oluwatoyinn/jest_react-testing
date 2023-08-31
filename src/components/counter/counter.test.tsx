@@ -39,4 +39,20 @@ describe("Counter", () => {
     const countElement = screen.getByRole("heading");
     expect(countElement).toHaveTextContent("2");
   });
+
+  test("renders a count of 10 after clicking the set btn", async () => {
+    render(<Counter />);
+    const amountInput = screen.getByRole("spinbutton");
+    await user.type(amountInput, "10");
+    expect(amountInput).toHaveValue(10);
+
+    const setBtn = screen.getByRole("button", {
+      name: "Set",
+    });
+    await user.click(setBtn);
+    const countElement = screen.getByRole('heading')
+    expect(countElement).toHaveTextContent("10")
+  });
+//  tab API - toHaveFocus() 
+//  copy, cut, paste, clear etc
 });
